@@ -1,11 +1,20 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy 
+
+
+# creating db instance 
+db = SQLAlchemy() 
 
 
 
 def create_app(config_name):
     
     # creating Flask app instance 
-    app = Flask(__name__)
+    app = Flask(__name__) 
+    
+    
+    # Initializing flask extensions
+    db.init_app(app) 
 
 
     # Registering the blueprint
