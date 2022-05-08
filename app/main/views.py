@@ -99,15 +99,19 @@ def update_pic(name):
         path = f'photos/{filename}'
         user.profile_pic_path = path
         db.session.commit()
-        
+
     return render_template('main.user_profile', name=name)
 
 
 @main.route('/upvote/<int:id>')
 def upvote(id):
-    pass 
+    show_upvotes = Upvote.get_upvotes(id)
+
+    return redirect(url_for('main.index',id=id))
 
 
 @main.route('/downvote/<int:id>')
 def downvote(id):
-    pass 
+    show_downvotes = Downvote.get_downvotes(id)
+
+    return redirect(url_for('main.index',id=id)) 
