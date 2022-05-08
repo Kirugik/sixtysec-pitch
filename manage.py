@@ -10,7 +10,6 @@ app = create_app('development')
 # Instantiate Manager class by passing in the app instance 
 manager = Manager(app)
 
-
 migrate = Migrate(app,db)
 
 manager.add_command('db',MigrateCommand)
