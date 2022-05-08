@@ -116,7 +116,7 @@ class Upvote(db.Model):
         return upvotes 
         
     def __repr__(self):
-        return f'{self.user_id}:{self.pitch_id} 
+        return f'{self.user_id}:{self.pitch_id}' 
     
     
 

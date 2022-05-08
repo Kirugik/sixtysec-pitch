@@ -6,6 +6,8 @@ class Config:
     SECRET_KEY=os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST='app/static/photos'
 
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://robert:Kirugik"79@localhost/pitching'
+
     #email configurations
     MAIL_SERVER = 'smtp.googlemail.com' 
     MAIL_PORT = 587
