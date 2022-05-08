@@ -1,10 +1,19 @@
 from . import main
-from flask import render_template  
+from flask import render_template,request,redirect,url_for,abort
+from ..models import User,Pitch,Comment,Upvote,Downvote 
+from .forms import UpdateProfile,PitchForm,CommentForm
+from flask_login import login_required, current_user 
+from .. import db,photos  
 
 
 # views
 @main.route('/')
 def index():
+    pitches = Pitch.query.all()
+    elevator = Pitch.query.filter_by(category='Elevator pitch').all()
+    interview = Pitch.query.filter_by(category='Interview pitch').all() 
+    pickup = Pitch.query.filter_by(category='Pickup line').all()
+    pun = Pitch.query.filter_by(category='Pun').all() 
     return render_template('index.html')
 
 
