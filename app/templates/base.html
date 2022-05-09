@@ -22,30 +22,31 @@
         <div class="collapse navbar-collapse text-white" id="togglenavbar"> 
             <ul class="navbar-nav ms-auto">
                 <li class="dropdown">
+                    {% if current_user.is_authenticated %} 
                     <a class="nav-link dropdown-toggle" href="/" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 15px;">
-                      Pitch Category
+                      Pitch Categories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li><a class="dropdown-item" href="#">Elevator pitch</a></li>
-                      <li><a class="dropdown-item" href="#">Interview pitch</a></li>
-                      <li><a class="dropdown-item" href="#">Pickup line</a></li>
-                      <li><a class="dropdown-item" href="#">Pun</a></li>
+                      <li><a class="dropdown-item" href="#">Elevator pitches</a></li>
+                      <li><a class="dropdown-item" href="#">Interview pitches</a></li>
+                      <li><a class="dropdown-item" href="#">Pickup lines</a></li>
+                      <li><a class="dropdown-item" href="#">Puns</a></li> 
                     </ul>
                 </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('auth.login')}}" style="margin-right: 15px;">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('auth.register')}}" style="margin-right: 15px;">Sign Up</a>
-                </li>
-               
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="margin-right: 15px;">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('auth.logout')}}" style="margin-right: 15px;">Logout</a>
                 </li>
-               
+                {% else %} 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('auth.login')}}" style="margin-right: 15px;">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('auth.register')}}" style="margin-right: 15px;">Sign Up</a>
+                </li>
+                {% endif %} 
             </ul>
         </div>
     </nav>

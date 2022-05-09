@@ -6,10 +6,10 @@ from ..models import User
 
 
 class SignupForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[InputRequired(),Email()])
-    username = StringField('Enter your username',validators = [InputRequired()])
+    email = StringField('Email address',validators=[InputRequired(),Email()])
+    username = StringField('Username',validators = [InputRequired()])
     password = PasswordField('Password',validators = [InputRequired(), EqualTo('password_confirm',message = 'Passwords must match')])
-    password_confirm = PasswordField('Confirm Password',validators = [InputRequired()])
+    password_confirm = PasswordField('Confirm password',validators = [InputRequired()])
     submit = SubmitField('Sign Up') 
     
     
@@ -22,7 +22,7 @@ class SignupForm(FlaskForm):
             raise ValidationError('That username is taken')
 
 class LoginForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[InputRequired(),Email()])
+    email = StringField('Email address',validators=[InputRequired(),Email()])
     password = PasswordField('Password',validators =[InputRequired()])
     remember = BooleanField('Remember me')
     submit = SubmitField('Login')  
