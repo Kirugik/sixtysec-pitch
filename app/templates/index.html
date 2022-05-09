@@ -1,14 +1,21 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macro%} 
+{% extends 'base.html' %} 
+{% import 'macros.html' as macro %} 
 
 
-{% block head %} 
-<title>Pitching</title> 
-{% endblock %}
-
-
-{% block body %} 
-<div class="container">
-    <h2>Welcome to the Home of Pitching</h2> 
+{% block content %} 
+<div class="pitches">
+    <div  class="container tab-pane active" id="elevator"><br>
+        {{ macro.display(elevator) }}
+    </div>
+    <div  class="container tab-pane fade" id="interview"><br>
+        {{ macro.display(interview)}}
+    </div>
+    <div  class="container tab-pane fade" id="pickup"><br>
+        {{ macro.display(pickup) }}
+    </div>
+    <div  class="container tab-pane fade" id="pun"><br>
+        {{ macro.display(pun) }}
+        
+    </div>
 </div>
-{% endblock %} 
+{% endblock %}
