@@ -7,7 +7,7 @@ from .. import db,photos
 
 
 # views
-@main.route('/')
+@main.route('/')  
 def index():
     pitches = Pitch.query.all()
     elevator = Pitch.query.filter_by(category='Elevator pitch').all()
@@ -27,6 +27,7 @@ def pitch():
 
 
 @main.route('/new_pitch', methods = ['POST','GET'])
+@login_required 
 def new_pitch():
     form = PitchForm()
     if form.validate_on_submit():
@@ -45,6 +46,7 @@ def new_pitch():
 
 
 @main.route('/comment/<int:pitch_id>', methods = ['POST','GET'])
+@login_required 
 def comment(pitch_id):
     form = CommentForm()
     pitch = Pitch.query.get(pitch_id)
@@ -75,6 +77,7 @@ def user_profile(name):
 
 
 @main.route('/user/<name>/update_profile', methods = ['POST','GET'])
+@login_required 
 def update_user_profile(name): 
     user = User.query.filter_by(username = name).first()
     if user is None:
@@ -92,6 +95,7 @@ def update_user_profile(name):
 
 
 @main.route('/user/<name>/update/pic')
+@login_required 
 def update_pic(name): 
     user = User.query.filter_by(username = name).first()
     if 'photo' in request.files:
@@ -104,6 +108,7 @@ def update_pic(name):
 
 
 @main.route('/upvote/<int:id>')
+@login_required 
 def upvote(id):
     show_upvotes = Upvote.get_upvotes(id)
 
@@ -111,6 +116,7 @@ def upvote(id):
 
 
 @main.route('/downvote/<int:id>')
+@login_required 
 def downvote(id):
     show_downvotes = Downvote.get_downvotes(id)
 
