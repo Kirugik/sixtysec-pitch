@@ -1,0 +1,63 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+<div class="row">
+  <div class="col-md-4" >
+    <div class="card">
+        <div class="user-image"  >
+                {% if user.profile_pic_path %}
+                <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="user-image"  alt="IMG">            
+                {%else%}
+                <p>No profile picture</p>
+                {% endif %}  
+        </div>
+
+        <div class="card-body">
+            <h5 class="text-center"> {{user.username }}</h5>
+            <hr>
+            {% if user.bio %}
+                <p>{{user.bio}}</p>
+            {%else%}
+            <p> There is no bio for {{user.username }}</p>
+            {% endif %}
+
+            {% if user == current_user %}
+            <div class="profile-pic">
+                <div class="update-pic">
+                  <a href="{{url_for('main.update_user_profile',name=user.username)}}">Edit Bio</a>
+                  <button class="btn btn-sm btn-info">Update profile picture</button>
+                </div>
+                
+                <div id="imgform">
+                    <form  action="{{url_for('main.update_pic',name=user.username)}}" method="post" enctype = "multipart/form-data">
+                      <input type="file"  name="photo" class="form-control" required>
+                      <input type="submit" class="btn btn-sm btn-info" id="submit">
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+    <div class="col-md-5" id="user">
+        {% if current_user %}
+        <h3 class="text-center">You have {{user.pitches.count()}} Pitches</h3>
+        {% for pitch in pitches%}
+        <div class="my-pitches">
+            <h5>Title: {{pitch.title}}</h5>
+            <h6>{{pitch.text}}</h6>
+            <h6>{{pitch.posted}}</h6>
+            <p>{{pitch.comment.count()}} Comments</p>
+        </div>
+        {%endfor%}
+
+        {%else%}
+        <h3>You have no pitches</h3>
+        {%endif%}
+
+  </div>
+</div>
+</div>
+{% endblock %}

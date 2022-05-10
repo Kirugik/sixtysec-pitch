@@ -66,12 +66,12 @@ def comment(pitch_id):
 
 
 @main.route('/user/<name>')
-def user_profile(name):
+def user_profile(name): 
     user = User.query.filter_by(username = name).first()
     user_id = current_user._get_current_object().id
     text = Pitch.query.filter_by(user_id = user_id).all()
     
-    if user is None:
+    if user is None: 
         abort(404)
     return render_template('profile/user_profile.html', user=user, text=text)
 
