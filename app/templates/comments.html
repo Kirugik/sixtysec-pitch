@@ -4,35 +4,33 @@
 
 <!-- content -->
 {% block content %}
-<div class="container mt-4">
+<div class="container">
     <div class="row" style="color: #ffffff;">
+
         {% if comments %}
-        <div class="col-md-6">
-            <h3 class="text-center" id="comments_list">Comments</h3>
-            {% for comment in comments %}
-            <div class="card w-90 mb-3">
+        {% for comment in comments %}
+        <div class="col-md-8">
+            <div class="card">
                 <div class="card-body">
-                    <h5>{{comment.pitch.title}}</h5>
+                    <h5>{{comment.text.title}}</h5>
                     <p class="card-title">{{ comment.comment }}</p>
                     <p class="card-text">{{comment.user.username}}</p>
                 </div>
+                
             </div>
-            {% endfor %}
+             
         </div>
+        {% endfor %}
+        
+        {% else %}
+        <div class="no-comment">
+            <p style="color: #ffffff;">This pitch has no comments</p> 
+        </div>
+        {% endif %}
 
-        <div class="col-md-4 commentform"> 
+        <div class="form">
             {{wtf.quick_form(form)}}
         </div>
     </div>
-    
-    {%else%}
-    
-    <div class="no-comment">
-        <p style="color: #ffffff;">This pitch has no comments</p> 
-    </div>
-    <div class="col-md-5">
-        {{wtf.quick_form(form)}}
-    </div>
-    {%endif%}
 </div>
 {% endblock %} 
