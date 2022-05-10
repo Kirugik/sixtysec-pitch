@@ -44,7 +44,7 @@
   
   <div class="col-md-8" id="user">
     {% if current_user %}
-    <h5 class="text-center" style="color: #9e5a63;">You have {{user.pitches.count()}} Pitches</h5>
+    <h5 class="text-center" style="color: #ffffff;">You have {{user.pitches.count()}} Pitches</h5>
 
     {% for pitch in user.pitches%}
     <div class="card" style="background-color: #314455; color: #FFFFFF; margin-bottom: 15px;">
@@ -53,7 +53,11 @@
       </div>
       <div class="card-body">
         <h6 style="margin-bottom: 10px;">{{pitch.text}}</h6>
-        <h6>{{pitch.posted}}</h6>
+        <h6>Posted on: {{pitch.posted}}</h6>
+      </div>
+      <div class="votes" style="margin-left: 20px;">
+        <span class="foot" style="margin-right: 25px;"> <a href="#"><i class="fa-solid fa-thumbs-up" style="color: green;"></i></a> {{pitch.upvote.count()}}</span>
+        <span class="foot" > <a href="#"><i class="fa-solid fa-thumbs-down" style="color: red;"></i></a> {{pitch.downvote.count()}}</span>
       </div>
       <div class="card-footer">
         <p>{{pitch.comment.count()}} Comments</p>

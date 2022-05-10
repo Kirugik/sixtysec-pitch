@@ -9,7 +9,7 @@
         {% if pitches %}
         {% for pitch in pitches %}
         <div class="col-md-4" >
-            <div class="card" style="margin-bottom: 15px; min-height: 350px; background-color: #314455; color: #FFFFFF;">
+            <div class="card" style="margin-bottom: 15px; min-height: 400px; background-color: #314455; color: #FFFFFF;">
                 <div class="card-header">
                     <h4>{{pitch.title}}</h4>
                 </div>
@@ -17,8 +17,8 @@
                 <div class="card-body">
                     <p class="card-title">{{pitch.text}}</p>
                     <p class="card-text">Category: {{pitch.category}}</p>
-                    <span class="foot" > <a href="#"><i class="fa-solid fa-thumbs-up" style="color: green;"></i></a> {{pitch.upvote.count()}}</span>
-                    <span class="foot" > <a href="#"><i class="fa-solid fa-thumbs-down" style="color: green;"></i></a> {{pitch.downvote.count()}}</span>
+                    <span class="foot" style="margin-right: 25px;"> <a href="#"><i class="fa-solid fa-thumbs-up" style="color: green;"></i></a> {{pitch.upvote.count()}}</span>
+                    <span class="foot" > <a href="#"><i class="fa-solid fa-thumbs-down" style="color: red;"></i></a> {{pitch.downvote.count()}}</span>
 
 
                 </div>
