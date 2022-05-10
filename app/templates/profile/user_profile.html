@@ -4,7 +4,7 @@
 <div class="container mt-4">
 <div class="row">
   <div class="col-md-4">
-    <div class="card">
+    <div class="card" style="background-color: #97aabd;">
       <div class="user-image">
         {% if user.profile_pic_path %}
         <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="user-image"  alt="IMG">            
@@ -28,12 +28,12 @@
         <div class="profile-pic">
           <div class="update-pic">
             <a href="{{url_for('main.update_user_profile',name=user.username)}}" style="margin-right: 15px;">Edit Bio</a>
-            <button class="btn btn-sm btn-info" style="margin-bottom: 10px;">Update profile picture</button>
+            <button class="btn btn-sm btn-info" style="margin-bottom: 10px; background-color: #9e5a63;color: #FFFFFF;">Update profile picture</button>
           </div>
           <div id="image-form">
             <form  action="{{url_for('main.update_pic',name=user.username)}}" method="post" enctype = "multipart/form-data">
               <input type="file"  name="photo" class="form-control" required>
-              <input type="submit" class="btn btn-sm btn-info mt-2" id="submit">
+              <input type="submit" class="btn btn-sm btn-info mt-2" id="submit" style="background-color: #9e5a63;color: #FFFFFF;">
             </form>
           </div>
         </div>
@@ -44,10 +44,10 @@
   
   <div class="col-md-8" id="user">
     {% if current_user %}
-    <h5 class="text-center">You have {{user.pitches.count()}} Pitches</h5>
+    <h5 class="text-center" style="color: #9e5a63;">You have {{user.pitches.count()}} Pitches</h5>
 
     {% for pitch in user.pitches%}
-    <div class="card" style="background-color: cadetblue; margin-bottom: 15px;">
+    <div class="card" style="background-color: #314455; color: #FFFFFF; margin-bottom: 15px;">
       <div class="card-title">
         <h5 style="padding-left: 10px; padding-top: 10px;">Title: {{pitch.title}}</h5>
       </div>
