@@ -1,7 +1,39 @@
 {% extends 'base.html' %} 
-{% import 'macros.html' as macro %} 
+<!-- {% import 'macros.html' as macro %}  -->
 
 
 {% block content %} 
+<div class="container-fluid mt-4">
+    <div class="row">
+            {% if pitches %}
+                {% for pitch in pitches %}
+                <div class="col-md-4" >
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>{{pitch.title}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">{{pitch.text}}</p>
+                            <p class="card-text">Category: {{pitch.category}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <p>Posted by: {{pitch.user.username}} on {{pitch.posted}}</p> 
+                            <p>{{pitch.comment.count()}} Comments</p>
+                            <a href="#" class="btn btn-sm">Comment</a>
+                        </div> 
+                    </div>
+                </div>
+                {% endfor %}
+                
+            {% else %}
+            <div class="card w-90 mb-3">
+                <div class="card-body">
+            
+                    <p class="card-title">0 pitches at the moment</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+</div>
 
 {% endblock %}
