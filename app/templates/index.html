@@ -26,7 +26,7 @@
                 <div class="card-footer">
                     <p style="font-size: 14px;">***Posted by: {{pitch.user.username}} on {{pitch.posted}}</p> 
                     <p style="font-size: 14px;">{{pitch.comment.count()}} Comments</p>
-                    <a href="#" class="btn btn-sm" style="background-color: #9e5a63;color: #FFFFFF;">Leave your Comment</a> 
+                    <a href="{{url_for('main.comment', pitch_id=pitch.id)}}" class="btn btn-sm" style="background-color: #9e5a63;color: #FFFFFF;">Leave your Comment</a> 
                 </div> 
             </div>
         </div>

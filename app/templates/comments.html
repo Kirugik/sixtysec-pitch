@@ -4,8 +4,8 @@
 
 <!-- content -->
 {% block content %}
-<div class="container" id="comments">
-    <div class="row">
+<div class="container mt-4">
+    <div class="row" style="color: #ffffff;">
         {% if comments %}
         <div class="col-md-6">
             <h3 class="text-center" id="comments_list">Comments</h3>
@@ -27,10 +27,8 @@
     
     {%else%}
     
-    <div class="card w-90 mb-3">
-        <div class="card-body">
-            <p class="card-title">This pitch has no comments</p> 
-        </div>
+    <div class="no-comment">
+        <p style="color: #ffffff;">This pitch has no comments</p> 
     </div>
     <div class="col-md-5">
         {{wtf.quick_form(form)}}

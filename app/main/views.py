@@ -114,7 +114,7 @@ def upvote(id):
     valid_string = f'{current_user.id}:{id}'
     for up in show_upvotes:
         to_str = f'{up}'
-        print(valid_string+" "+to_str)
+        # print(valid_string+" "+to_str)
         if valid_string == to_str:
             return redirect(url_for('main.index',id=id))
         else:
