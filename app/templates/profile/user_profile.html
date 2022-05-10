@@ -27,13 +27,13 @@
         {% if user == current_user %} 
         <div class="profile-pic">
           <div class="update-pic">
-            <a href="{{url_for('main.user_profile',name=user.username)}}">Edit Bio</a>
-            <button class="btn btn-sm btn-info">Update profile picture</button>
+            <a href="{{url_for('main.update_user_profile',name=user.username)}}" style="margin-right: 15px;">Edit Bio</a>
+            <button class="btn btn-sm btn-info" style="margin-bottom: 10px;">Update profile picture</button>
           </div>
           <div id="image-form">
             <form  action="{{url_for('main.update_pic',name=user.username)}}" method="post" enctype = "multipart/form-data">
               <input type="file"  name="photo" class="form-control" required>
-              <input type="submit" class="btn btn-sm btn-info" id="submit">
+              <input type="submit" class="btn btn-sm btn-info mt-2" id="submit">
             </form>
           </div>
         </div>

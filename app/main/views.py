@@ -104,7 +104,7 @@ def update_pic(name):
         user.profile_pic_path = path
         db.session.commit()
 
-    return render_template('main.user_profile', name=name)
+    return redirect('main.user_profile', name=name)
 
 
 @main.route('/upvote/<int:id>')
