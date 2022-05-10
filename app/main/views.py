@@ -89,9 +89,9 @@ def update_user_profile(name):
         user.bio = form.bio.data
 
         user.save_user() 
-        return redirect(url_for('.profile', name=name))
+        return redirect(url_for('.user_profile', name=name))
     
-    return render_template('profile/update_profile.html', form=form)
+    return render_template('profile/update_profile.html', user=user, form=form)
 
 
 @main.route('/user/<name>/update/pic')

@@ -10,13 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    {% endblock %}
+    {% endblock %} 
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
         <a class="navbar-brand" href="/">Pitching</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#togglenavbar" aria-controls="togglenavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#togglenavbar" aria-controls="togglenavbar" aria-expanded="false" aria-label="Toggle navigation"> 
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse text-white" id="togglenavbar"> 
@@ -24,7 +24,7 @@
                 <li class="dropdown">
                     {% if current_user.is_authenticated %} 
                     <a class="nav-link dropdown-toggle" href="/" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 15px;">
-                      Pitch Categories
+                      Pitch Categories 
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       <li><a class="dropdown-item" href="#">Elevator pitches</a></li>
@@ -34,7 +34,7 @@
                     </ul>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('main.user_profile')}}" style="margin-right: 15px;">Profile</a>
+                    <a class="nav-link" href="{{url_for('main.user_profile', name=current_user.username)}}" style="margin-right: 15px;">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('auth.logout')}}" style="margin-right: 15px;">Logout</a>
