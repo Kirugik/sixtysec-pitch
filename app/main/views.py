@@ -111,6 +111,16 @@ def update_pic(name):
 @login_required 
 def upvote(id):
     show_upvotes = Upvote.get_upvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for up in show_upvotes:
+        to_str = f'{up}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+        new_vote = Upvote(user = current_user, pitch_id=id)
+        new_vote.save()
 
     return redirect(url_for('main.index',id=id))
 
@@ -119,5 +129,14 @@ def upvote(id):
 @login_required 
 def downvote(id):
     show_downvotes = Downvote.get_downvotes(id)
-
+    valid_string = f'{current_user.id}:{id}'
+    for down in show_downvotes:
+        to_str = f'{down}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+    new_downvote = Downvote(user = current_user, pitch_id=id)
+    new_downvote.save()
     return redirect(url_for('main.index',id=id)) 
