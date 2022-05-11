@@ -5,7 +5,7 @@ from  flask_migrate import Migrate, MigrateCommand
 
 
 # Creating app instance
-app = create_app('development')   
+app = create_app('production')   
 
 # Instantiate Manager class by passing in the app instance 
 manager = Manager(app)
