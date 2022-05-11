@@ -26,7 +26,7 @@ class DevConfig(Config):
     '''
     '''
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://robert:Kirugik"79@localhost/pitching' 
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://robert:Kirugik"79@localhost/pitching' 
 
 
     DEBUG=True
