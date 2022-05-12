@@ -20,7 +20,9 @@ class Config:
 class ProdConfig(Config):
     '''
     '''
-    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI='postgresql://zjiqwacgsmuivn:5b0a9ad83aa723d4e7391d1e667491eb482df7a26cf70af267f09a63459382d2'
+
+    
 
 
 class DevConfig(Config):
